@@ -43,7 +43,7 @@ html {
     flex-direction: column;
 
     width: 400px;
-    height: 419px;
+    height: 420px;
 
     padding: 2em 2em 2em 2em;
 
@@ -81,6 +81,12 @@ html {
     border-style: none;
     border-width: 0.5px;
     border-radius: 50%;
+}
+
+.circle:hover {
+    background-color: hsl(25, 97%, 53%);
+    color: white;
+    cursor: pointer;
 }
 
 .circle-margin {
@@ -139,14 +145,22 @@ html {
     border-style: none;
 }
 
-.submit-text {
-    color: white;
-    
+.rounded-button:hover {
+    background-color: white;
+    color:hsl(25, 97%, 53%);
+    cursor: pointer;
+}
+
+.submit-text {    
     font-family: 'Overpass', sans-serif;
     font-size: 18px;
     font-weight: 700;
 
     padding: 0.5em 0 0.5em 0;
+}
+
+.text-is-white {
+    color: white;
 }
 
 .is-orange {

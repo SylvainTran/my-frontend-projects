@@ -5,10 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>My first Bulma website</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script src="js/modal.js"></script>
     <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
+    <!-- React App -->
+    <div id="app"></div>
+
+    <!-- Modal -->
+    <!--
     <div id="modal-js-example" class="modal is-active">
       <div class="modal-background"></div>
     
@@ -36,7 +44,7 @@
             <div class="circle circle-margin center-flex">5</div>  
           </div>
 
-          <button class="rounded-button is-orange center-flex">
+          <button class="rounded-button text-is-white is-orange center-flex">
             <div class="submit-text">Submit</div>
           </button>
 
@@ -45,9 +53,141 @@
     
       <button class="modal-close is-large" aria-label="close"></button>
     </div>
+    -->
+    <!-- Modal Trigger -->
     <button class="js-modal-trigger" data-target="modal-js-example">
       Open JS example modal
     </button>
+
+    <!-- Scripts -->
+    <script type="text/jsx">
+      const app = document.getElementById('app');
+
+      class Modal extends React.Component {
+        
+        constructor(props) {
+          super(props);
+          this.state = {active: props.active};
+        }
+
+        componentDidMount() {
+          this.timerID = setInterval(
+            () => this.tick(),
+            1000
+          );
+        }
+      
+        componentWillUnmount() {
+          clearInterval(this.timerID);
+        }
+      
+        tick() {
+          this.setState({
+            active: this.props.active
+          });
+        }
+
+        render() {
+          const isActive = this.state.active;
+
+          return (
+            <div>
+            {isActive ? 
+              <div id="modal-js-example" className="modal is-active">
+                <div className="modal-background"></div>
+                <div className="modal-content center-flex">              
+                  <Card 
+                    title="How did we do?" 
+                    paragraph="Please let us know how we did with your support request. All feedback is appreciated
+                    to help us improve our offering!" 
+                  />
+                </div>
+                <button onClick="" className="modal-close is-large" aria-label="close"></button>
+              </div>              
+            : null}
+            </div>
+          );  
+        }
+      }
+
+      function Card({title, paragraph}) {
+        return (<div className="box rounded">
+          <CardHeader />
+          <CardTitle text={title} />
+          <CardParagraph text={paragraph} />
+          <HorizontalRatings />
+          <RoundSubmitButton />
+        </div>);
+      }
+
+      function CardHeader() {
+        return (<div className="box-header">
+          <div className="rating-star-container rating-star-circle center-flex">
+            <img className="rating-star" src="images/icon-star.svg" alt="star" />
+          </div>              
+        </div>);        
+      }
+
+      function CardTitle({text}) {
+        return (<h1 className="box-h2 box-title">{text}</h1>);
+      }
+
+      function CardParagraph({text}) {
+        return (
+          <p className="box-paragraph">{text}</p>
+        );
+      }
+
+      function HorizontalRatings() {
+        return (
+        <div className="circle-row">
+
+          <Rating number="1" />
+          <Rating number="2" />
+          <Rating number="3" />
+          <Rating number="4" />
+          <Rating number="5" />
+
+        </div>);
+      }
+
+      function Rating({number}) {
+        return (<div className="circle center-flex">{number}</div>);
+      }
+
+      function RoundSubmitButton() {
+        return (<button className="rounded-button text-is-white is-orange center-flex">
+          <div className="submit-text">Submit</div>
+        </button>);
+      }
+
+      function Header({title}) {
+        return (<h1>{title ? title : 'Default title'}</h1>)
+      }
+
+      function HomePage() {
+        console.log(React.useState(0));
+        const [active, setActive] = React.useState(false);
+
+        function handleClick() {
+          setActive(true)
+        }
+        
+        return (
+          <div>
+            {/* Header comp */}
+            <button onClick={handleClick}>Launch Modal</button>            
+            <Modal active={active} />
+          </div>
+        );
+      }
+   
+      ReactDOM.render(
+      <React.StrictMode>  
+        <HomePage />
+      </React.StrictMode>
+      , app);
+    </script>
     <script type="text/javascript" src="lib/main.js"></script>
   </body>
 </html>
