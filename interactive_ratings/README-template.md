@@ -64,10 +64,16 @@ I re-learned a few things,
 
 I learned about Bulma.
 
+I learned about handling events in React, and how to lift state up.
+
+I also took a look at the profiler (React's and the browser's)
+
 ### Continued development
 
 I got everything gnerally right, but I'd like to be sure things like pixels vs. em
 are good. And make sure it's good on other browers and monitors.
+
+React updating its tree is slow! I have to look into how to avoid this problem.
 
 
 ### Useful resources

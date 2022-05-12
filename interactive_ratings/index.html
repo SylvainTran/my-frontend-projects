@@ -19,14 +19,14 @@
     <!--
     <div id="modal-js-example" class="modal is-active">
       <div class="modal-background"></div>
-    
+
       <div class="modal-content center-flex">
         <div class="box rounded">
 
           <div class="box-header">
             <div class="rating-star-container rating-star-circle center-flex">
               <img class="rating-star" src="images/icon-star.svg" alt="star">
-            </div>              
+            </div>
           </div>
 
           <h1 class="box-h2 box-title">How did we do?</h1>
@@ -41,7 +41,7 @@
             <div class="circle circle-margin center-flex">2</div>
             <div class="circle circle-margin center-flex">3</div>
             <div class="circle circle-margin center-flex">4</div>
-            <div class="circle circle-margin center-flex">5</div>  
+            <div class="circle circle-margin center-flex">5</div>
           </div>
 
           <button class="rounded-button text-is-white is-orange center-flex">
@@ -50,7 +50,7 @@
 
         </div>
       </div>
-    
+
       <button class="modal-close is-large" aria-label="close"></button>
     </div>
     -->
@@ -64,10 +64,12 @@
       const app = document.getElementById('app');
 
       class Modal extends React.Component {
-        
+
         constructor(props) {
           super(props);
-          this.state = {active: props.active};
+          this.state = {active: props.active, selected: null}; // the selected rating
+          this.handleChangeRating = this.handleChangeRating.bind(this);
+          this.closeModal = this.closeModal.bind(this);
         }
 
         componentDidMount() {
@@ -76,15 +78,24 @@
             1000
           );
         }
-      
+
         componentWillUnmount() {
           clearInterval(this.timerID);
         }
-      
+
         tick() {
           this.setState({
             active: this.props.active
           });
+        }
+
+        handleChangeRating(number) {
+          console.log("The selected number is : " + number);
+          this.setState({selected: number})
+        }
+
+        closeModal() {
+          this.props.onCloseRatingsModal();
         }
 
         render() {
@@ -92,40 +103,51 @@
 
           return (
             <div>
-            {isActive ? 
+            {isActive ?
               <div id="modal-js-example" className="modal is-active">
                 <div className="modal-background"></div>
-                <div className="modal-content center-flex">              
-                  <Card 
-                    title="How did we do?" 
+                <div className="modal-content center-flex">
+                  <Card
+                    title="How did we do?"
                     paragraph="Please let us know how we did with your support request. All feedback is appreciated
-                    to help us improve our offering!" 
+                    to help us improve our offering!"
+                    onRatingChange={this.handleChangeRating}
                   />
                 </div>
-                <button onClick="" className="modal-close is-large" aria-label="close"></button>
-              </div>              
+                <button onClick={this.closeModal} className="modal-close is-large" aria-label="close"></button>
+              </div>
             : null}
             </div>
-          );  
+          );
         }
       }
 
-      function Card({title, paragraph}) {
-        return (<div className="box rounded">
-          <CardHeader />
-          <CardTitle text={title} />
-          <CardParagraph text={paragraph} />
-          <HorizontalRatings />
-          <RoundSubmitButton />
-        </div>);
+      class Card extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {title: props.title, paragraph: props.paragraph};
+        }
+
+        render() {
+          const title = this.props.title;
+          const paragraph = this.props.paragraph;
+
+          return (<div className="box rounded">
+            <CardHeader />
+            <CardTitle text={title} />
+            <CardParagraph text={paragraph} />
+            <HorizontalRatings onRatingChange={this.props.onRatingChange} />
+            <RoundSubmitButton />
+          </div>);
+        }
       }
 
       function CardHeader() {
         return (<div className="box-header">
           <div className="rating-star-container rating-star-circle center-flex">
             <img className="rating-star" src="images/icon-star.svg" alt="star" />
-          </div>              
-        </div>);        
+          </div>
+        </div>);
       }
 
       function CardTitle({text}) {
@@ -138,21 +160,42 @@
         );
       }
 
-      function HorizontalRatings() {
-        return (
-        <div className="circle-row">
+      class HorizontalRatings extends React.Component {
+        constructor(props) {
+          super(props);
+        }
 
-          <Rating number="1" />
-          <Rating number="2" />
-          <Rating number="3" />
-          <Rating number="4" />
-          <Rating number="5" />
+        render() {
+          return (
+          <div className="circle-row">
 
-        </div>);
+            <Rating onRatingChange = {this.props.onRatingChange} number="1" />
+            <Rating onRatingChange = {this.props.onRatingChange} number="2" />
+            <Rating onRatingChange = {this.props.onRatingChange} number="3" />
+            <Rating onRatingChange = {this.props.onRatingChange} number="4" />
+            <Rating onRatingChange = {this.props.onRatingChange} number="5" />
+
+          </div>);
+        }
       }
 
-      function Rating({number}) {
-        return (<div className="circle center-flex">{number}</div>);
+      class Rating extends React.Component {
+        /**
+          The ratings that the user can choose to click.
+        */
+        constructor(props) {
+          super(props);
+          this.state = {number: props.number, selected: false}
+          this.handleClick = this.handleClick.bind(this);
+        }
+
+        handleClick(e) {
+          this.props.onRatingChange(this.props.number);
+        }
+
+        render() {
+          return (<div className="circle center-flex" onClick={this.handleClick}>{this.props.number}</div>);
+        }
       }
 
       function RoundSubmitButton() {
@@ -165,25 +208,38 @@
         return (<h1>{title ? title : 'Default title'}</h1>)
       }
 
-      function HomePage() {
-        console.log(React.useState(0));
-        const [active, setActive] = React.useState(false);
+      class HomePage extends React.Component {
 
-        function handleClick() {
-          setActive(true)
+        constructor(props) {
+          super(props);
+          this.state = {ratingsModalActive: false};
+          this.openRatingsModal = this.openRatingsModal.bind(this);
+          this.closeRatingsModal = this.closeRatingsModal.bind(this);
         }
-        
-        return (
-          <div>
-            {/* Header comp */}
-            <button onClick={handleClick}>Launch Modal</button>            
-            <Modal active={active} />
-          </div>
-        );
+
+        openRatingsModal() {
+          this.setState({ratingsModalActive: true});
+        }
+
+        closeRatingsModal() {
+          this.setState({ratingsModalActive: false});
+        }
+
+        render() {
+          const ratingsModalActive = this.state.ratingsModalActive;
+
+          return (
+            <div>
+              {/* Header comp */}
+              <button onClick={this.openRatingsModal}>Launch Modal</button>
+              <Modal active={ratingsModalActive} onCloseRatingsModal={this.closeRatingsModal} />
+            </div>
+          );
+        }
       }
-   
+
       ReactDOM.render(
-      <React.StrictMode>  
+      <React.StrictMode>
         <HomePage />
       </React.StrictMode>
       , app);
