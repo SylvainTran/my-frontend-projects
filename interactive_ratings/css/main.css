@@ -10375,12 +10375,34 @@ html {
   cursor: pointer;
 }
 
+.circle-selected {
+    
+  width: 50px;
+  height: 50px;  
+  
+  background-color: hsl(25, 97%, 53%);
+  color: white;
+
+  border-style: none;
+  border-width: 0.5px;
+  border-radius: 50%;
+}
+
 .circle-margin {
   margin: 0.5em 0.5em 0.5em 0;
 }
 
 .box-header {
   margin-bottom: 2em;
+}
+
+.thank-you-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.has-margin-top {
+  margin-top: 1.5em;
 }
 
 .center-flex {
@@ -10440,6 +10462,10 @@ html {
 
 .text-is-white {
   color: white;
+}
+
+.text-is-orange {
+  color: hsl(25, 97%, 53%);
 }
 
 .is-orange {
