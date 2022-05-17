@@ -6,58 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap" rel="stylesheet">
-    <title>Love Material</title>
+    <title>Black Material</title>
     <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script src="js/modal.js"></script>
+
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/style.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/flickity.min.css">
+
   </head>
   <body>
-    <!-- React App -->
-    <div id="app"></div>
+    <!-- Main Carousel -->
+    <div class="main-carousel" data-flickity='{ "cellAlign": "left", "contain": true }'>
+      <div class="carousel-cell">
+        <img src="assets/lobster1.jpg" />
+      </div>
+      <div class="carousel-cell">
+        <img src="assets/avocado1.jpg" />
+      </div>
+      <div class="carousel-cell">
+        <img src="assets/seafood2.jpg" />
+      </div>
+      <div class="carousel-cell">
+        <img src="assets/seafood3.jpg" />
+      </div>
+    </div>
+
+    <!-- Nav menu -->
+
+    <nav>
+      
+    </nav>
 
     <!-- Scripts -->
-    <script type="text/jsx">
-      const app = document.getElementById('app');
-
-      class Navbar extends React.Component {
-        constructor(props) {
-          super(props);
-        }
-
-        render() {
-          return null;
-        }
-      }
-
-      class HomePage extends React.Component {
-
-        constructor(props) {
-          super(props);
-        }
-
-        render() {
-
-          return (
-            <div className="global-container">
-            
-              <h1>Love Material</h1>
-
-              <Navbar />
-
-            </div>
-          );
-        }
-      }
-
-      ReactDOM.render(
-      <React.StrictMode>
-        <HomePage />
-      </React.StrictMode>
-      , app);
-    </script>
     <script type="text/javascript" src="lib/main.js"></script>
+    <!-- Flickity -->
+    <script src="js/flickity.pkgd.min"></script>
   </body>
 </html>
