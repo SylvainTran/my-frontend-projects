@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap" rel="stylesheet">
+    <title>Sylvain Tran</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="js/modal.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <!-- React App -->
+    <div id="app"></div>
+
+    <!-- Scripts -->
+    <script type="text/jsx">
+      const app = document.getElementById('app');
+
+      function PresentationHeader() {
+        return (
+        <div className="viewport-third-width">
+          <p>
+            Canadian Software Programmer & Level Designer/Artist.
+          </p>
+        </div>);
+      }
+
+      function ProfileBusinessCard() {
+        return (
+        <div className="is-flex flex-start-end">
+          <img src="" alt="profile-pic" />
+          <div className="is-flex flex-vertical">
+            <a src="#">Resume</a>
+            <a src="#">Project Reel (2021-2022)</a>
+            <a src="#">Self-Presentation Video</a>
+            <a src="#">Contact</a>
+          </div>
+        </div>);
+      }
+
+      class PortfolioNavbar extends React.Component {
+        constructor(props) {
+          super(props);
+          this.setHoverPrimaryColor = this.setHoverPrimaryColor.bind(this);
+          this.setHoverSecondaryColor = this.setHoverSecondaryColor.bind(this);
+          this.restorePrimaryBgColor = this.restorePrimaryBgColor.bind(this);
+          this.restoreSecondaryBgColor = this.restoreSecondaryBgColor.bind(this);
+        }
+
+        updatePortfolioSelectionCriteria(selectedPortfolioItem, evt) {
+          this.props.updatePortfolioSelectionCriteria(selectedPortfolioItem);
+
+          if (!evt.target.classList.contains("darker-turquoise-bg")) {
+            evt.target.classList.add("darker-turquoise-bg");
+          } else {
+            evt.target.classList.remove("darker-turquoise-bg");
+          }
+        }
+
+        setHoverPrimaryColor(evt) {
+          evt.target.classList.add("turquoise-bg");
+        }
+
+        setHoverSecondaryColor(evt) {
+          evt.target.classList.add("turquoise-bg");
+        }
+
+        restorePrimaryBgColor(evt) {
+          evt.target.classList.remove("turquoise-bg");
+        }
+
+        restoreSecondaryBgColor(evt) {
+          evt.target.classList.remove("turquoise-bg");
+        }
+
+        render() {
+          return (
+            <div className="content">
+              <h1>Portfolio</h1>
+              <hr />
+              <br/>
+              <nav>
+                <button className="button is-secondary black-font" onClick={this.updatePortfolioSelectionCriteria.bind(this, "All")}>All</button>
+                <button className="button is-secondary black-font" onClick={this.updatePortfolioSelectionCriteria.bind(this, "Website")}>Websites</button>
+                <button className="button is-secondary black-font" onClick={this.updatePortfolioSelectionCriteria.bind(this, "Level Design")}>Level Design</button>
+                <button className="button is-secondary black-font" onClick={this.updatePortfolioSelectionCriteria.bind(this, "Level Art")}>Level Art</button>
+                <button className="button is-secondary black-font" onClick={this.updatePortfolioSelectionCriteria.bind(this, "Learning")}>Learning</button>
+                <button className="button is-secondary black-font" onClick={this.updatePortfolioSelectionCriteria.bind(this, "Completed")}>Completed</button>
+                <button className="button is-secondary black-font" onClick={this.updatePortfolioSelectionCriteria.bind(this, "Computer Science")}>Computer Science</button>
+              </nav>
+              <br/>
+            </div>);
+        }
+      }
+
+      class PortfolioSection extends React.Component {
+        constructor(props) {
+          super(props);
+        }
+
+        render() {
+
+          return (
+            <section className="full-width">
+            {this.props.selectedPortfolioItems != null ?
+              this.props.selectedPortfolioItems.map(portfolioItemObject => {
+                return (
+                  <div key={portfolioItemObject.name}>
+                    <PortfolioItem gameTitle={portfolioItemObject.name} gameElevatorPitch={portfolioItemObject.elevatorPitch} gameDescription={portfolioItemObject.description} gameRoles={portfolioItemObject.roles} gameProcess={portfolioItemObject.process} gameMaterials={portfolioItemObject.materials} gameReflection={portfolioItemObject.reflection} hasPlayLink={portfolioItemObject.hasPlayLink} />
+                    <br /><br />
+                  </div>);
+              })
+              : null
+            }
+            </section>);
+          }
+      }
+
+      class PortfolioItem extends React.Component {
+        constructor(props) {
+          super(props);
+        }
+
+        render() {
+          return (
+            <div className="portfolio-item">
+              {/* Project highlights video and hero pics */}
+              <div className="is-flex flex-vertical">
+                <video width="512" height="512" controls>
+                  <source src="assets/portfolioItem01.mp4" type="video/mp4" />
+                  <source src="assets/portfolioItem01.ogg" type="video/ogg" />
+                  Your browser does not support the video tag.
+                </video>
+                <div className="portfolio-item-pics is-flex flex-horizontal">
+                  <img src="" alt="portfolio-item-pic-a" />
+                  <img src="" alt="portfolio-item-pic-b" />
+                  <img src="" alt="portfolio-item-pic-c" />
+                </div>
+              </div>
+              {/* Description on the side */}
+              <article className="content article-description">
+                <h1>{this.props.gameTitle}</h1>
+                <br />
+                <h8>{this.props.gameElevatorPitch}</h8>
+
+                <br /><br />
+                <p>
+                  Description:
+                    {this.props.gameDescription}
+                </p>
+
+                <br />
+                <p>
+                  Roles:
+                    {this.props.gameRoles}
+                </p>
+
+                <br />
+                <p>
+                  Process:
+                    {this.props.gameProcess}
+                </p>
+
+                {this.props.gameMaterials? <p>
+                  Materials: {this.props.gameMaterials}
+                </p> : null}
+
+                {this.props.gameReflection? <p>
+                  Reflection: {this.props.gameReflection}
+                </p> : null}
+
+                {this.props.hasPlayLink? <a href={this.props.playLink}>Play Link!</a> : null}
+              </article>
+            </div>
+          );
+        }
+      }
+
+      //TODO: JSON
+      let PortfolioItemsData = [
+        {
+          name: " Rock \'n\' Mole",
+          tags: ["Level Design", "Completed"],
+          elevatorPitch: " A fast-paced game of lemmings meet action puzzle prototype.",
+          description: " A Ubisoft Gamelab 2020 project entry. Play as a golem guardian and lead generations of moles through mysterious depths to secure the fate of your kingdom! Currently, the prototype has four playable levels.",
+          roles: " Lead Game and Level Designer",
+          process: " For this project, I had to work with a multidisciplinary team of 8 (5 programmers, 3 designers and artists). My approach was to focus on generating multiple design solutions and integrating the best ideas that were within scope (8-weeks).",
+          materials: null,
+          reflection: null,
+          hasPlayLink: false,
+          playLink: ""
+        },
+        {
+          name: " Momma Cub!",
+          tags: ["All", "Learning"],
+          elevatorPitch: " A deity sim where you can influence a town's production through your farm's worker AI.",
+          description: " A personal project that is a hybrid management/life/farming sim genre. Play as a spirit in this mini real-time strategy (RTS) where you hire Android staff to conduct your business. Manage your business, staff, and your relationship with your Androids to be successful, or conduct the manual work yourself! This game features original ideas like social artificial intelligence (AI).",
+          roles: " Full Stack Game Developer",
+          process: " I approached this project using rapid prototyping.",
+          materials: null,
+          reflection: "I learned that using Debug.DrawRay early is a good idea.",
+          hasPlayLink: true,
+          playLink: "#"
+        },
+        {
+          name: " Cinematic Dialogue Level Design Tool",
+          tags: ["Learning", "Computer Science"],
+          elevatorPitch: " A Unity (editor) tool used to rapidly create bundles of cinematic dialogue moments around a level.",
+          description: " Automatically creates and places cinematic dialogue game objects relevant to the design context. This includes Actors, Static and Dynamic Camera angles, and Special Character Actions. These were specific to the game I was developing.",
+          roles: " Level Designer, Tool Developer",
+          process: " I defined this tool's requirements myself as I am also the level designer for the game project this was used for. Iteration was bottom-up after realising what I needed to get done quickly / automated for my level design.",
+          materials: null,
+          reflection: "Incremental development and early tests matter! Visual debugging in graphics is important.",
+          hasPlayLink: false,
+          playLink: "#"
+        },
+        {
+          name: " ArtEX Raytracer",
+          tags: ["Learning", "Computer Science"],
+          elevatorPitch: " An accessible raytracer API that allows artists and designers to rapidly prototype raytracing-based graphics, or traditional realistic ones.",
+          description: " Features full local illumination and ongoing development on global illumination support. Features hard and soft shadows, antialiasing, stratified random sampling, point and area lights. Computing acceleration features Bounding Volume Hierarchy.",
+          roles: " Software Developer",
+          process: " This was a Computer Graphics university project. I was interested in understanding Computer Graphics relevant to level art and lighting at a deep, mathematical level.",
+          materials: null,
+          reflection: "Incremental development and early tests matter! Visual debugging in graphics is important.",
+          hasPlayLink: false,
+          playLink: "#"
+        },
+        {
+          name: " Fantasy and Sci-Fi Modular Level Design Art Assets I",
+          tags: ["Completed", "Level Art"],
+          elevatorPitch: " A bundle of level design friendly modular assets, useful for RTS and Tower Defense games.",
+          description: " Nine modular models with their pieces.",
+          roles: " Level Design, Level Artist",
+          process: " I developed this asset bundle using Blender, Maya, 3DS Max, and Substance Painter. I used these to rapidly fill the levels for my game project, \'You Never Lied\', and \'Speculative Play 2\'.",
+          materials: null,
+          reflection: null,
+          hasPlayLink: false,
+          playLink: "#"
+        },
+        {
+          name: " Portfolio Website using React.js and Bulma",
+          tags: ["Completed", "Website"],
+          elevatorPitch: " A mobile-first, responsive, React.js website with Bulma",
+          description: " This is a modern-looking minimalist website that uses React.js to handle item display by content type.",
+          roles: " Frontend Developer",
+          process: " This was a project that taught me a lot about React concepts such as lifting states up, conditional rendering, and controlling components.",
+          materials: null,
+          reflection: null,
+          hasPlayLink: true,
+          playLink: ""
+        },
+      ];
+
+      class HomePage extends React.Component {
+
+        constructor(props) {
+          super(props);
+          this.state = {selectedPortfolioCriteria: [], submittedInterest: false, interested: null};
+          this.updatePortfolioSelectionCriteria = this.updatePortfolioSelectionCriteria.bind(this);
+
+          // Setup initial portfolio display items
+          this.getAllPortfolioItems = this.getAllPortfolioItems.bind(this);
+        }
+
+        getAllPortfolioItems() {
+          // TODO: READ FROM JSON
+          return PortfolioItemsData;
+        }
+
+        deselectPortfolioItemCriteria(index) {
+
+          // Case where array len === 1
+          if (this.state.selectedPortfolioCriteria.length === 1) {
+            this.setState({selectedPortfolioCriteria: []});
+            return;
+          }
+          // Cases greater than 1
+          // Remove head case
+          if (index === 0) {
+            let startAtOne = this.state.selectedPortfolioCriteria.slice(1);
+            this.setState({selectedPortfolioCriteria: startAtOne});
+            return;
+          }
+
+          let deselected;
+          let beforeIndex = this.state.selectedPortfolioCriteria.slice(0, index);
+          let afterIndex = this.state.selectedPortfolioCriteria.slice(index + 1);
+
+          if (afterIndex.length === 0) {
+            // Tail case
+            deselected = beforeIndex;
+          }
+          else if (afterIndex.length > 0) {
+            // general case
+            deselected = beforeIndex.concat(afterIndex);
+          }
+          this.setState({
+            selectedPortfolioCriteria: deselected
+          });
+        }
+
+        shouldDisplay() {
+          // Should Display or not
+          const portfolioItems = this.getAllPortfolioItems();
+          let selectIndex = -1;
+
+          for(let i=0; i < portfolioItems.length; i++) {
+            for(let j=0; j < portfolioItems[i].tags.length; j++) {
+              if (portfolioItems[i].tags[j] === criteriaString) {
+                selectIndex = [];
+                break;
+              }
+            }
+          }
+        }
+
+        updatePortfolioSelectionCriteria(criteriaString) {
+
+          for(let i=0; i < this.state.selectedPortfolioCriteria.length; i++) {
+            if (this.state.selectedPortfolioCriteria[i] === criteriaString) {
+              // deselect
+              this.deselectPortfolioItemCriteria(i);
+              return;
+            }
+          }
+
+          // We want to add a new criteria to our array of criterias, that's it
+          // Add to selection array
+          let curr = this.state.selectedPortfolioCriteria.slice();
+          curr.push(criteriaString);
+          this.setState({selectedPortfolioCriteria: curr});
+        }
+
+        handleSubmittedInterest(interest) {
+          this.setState({interested: interest});
+        }
+
+        submitInterest() {
+          if (this.state.interest != null) {
+            console.log("Submitted interest: " + this.state.interested);
+            this.setState({submittedInterest: true})
+          }
+        }
+
+        render() {
+          let selectedPortfolioCriteria = this.state.selectedPortfolioCriteria;
+          let allPortfolioItems = this.getAllPortfolioItems();
+          let selectedPortfolioItems = [];
+
+          // We're just triyng to refresh the array of selected portfolio items
+          // Those that have any of the current tags are good to go
+          selectedPortfolioCriteria.forEach( criteria => { // All
+
+            allPortfolioItems.forEach( portfolioItemObject => {
+
+              if (portfolioItemObject.tags.includes(criteria)) {
+                selectedPortfolioItems.push(portfolioItemObject);
+              }
+            });
+          });
+
+          return (
+            <div className="global-container">
+              <section className="is-flex flex-start-end">
+                <PresentationHeader />
+                <ProfileBusinessCard />
+              </section>
+
+              {/* Selection work that have the criterias as tag */}
+              <PortfolioNavbar updatePortfolioSelectionCriteria={this.updatePortfolioSelectionCriteria} />
+
+              {/* Gallery of all selected portfolio items */}
+              {selectedPortfolioItems.length > 0 ?
+                <PortfolioSection selectedPortfolioItems={selectedPortfolioItems} /> : null}
+            </div>
+          );
+        }
+      }
+
+      ReactDOM.render(
+      <React.StrictMode>
+        <HomePage />
+      </React.StrictMode>
+      , app);
+    </script>
+    <script type="text/javascript" src="lib/main.js"></script>
+  </body>
+</html>
