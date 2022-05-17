@@ -1,0 +1,14 @@
+.card__cart-bt__container {
+    user-select: none;
+    padding: 20px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: greenyellow;
+    text-align: center;
+    cursor: pointer;
+}
+
+.card__cart-bt__container:hover {
+    color: white;
+    background-color: yellowgreen;
+}

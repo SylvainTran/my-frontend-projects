@@ -1,0 +1,46 @@
+        <!-- Modal for registration -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Abonnement</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="modal__registration-form" name="modal__registration-form" action="assets/server/registration.php" method="POST" onSubmit="validateRegistration();">
+                        <div class="form-group">
+                            <label for="modal__reg-input--username">Identifiant</label>
+                            <input required type="text" class="form-control" id="modal__reg-input--username" name="modal__reg-input--username" maxlength="16"></input>
+                            <div class="reg-input--username"></div>                        
+                            <label for="modal__reg-input--password">Mot de passe</label>
+                            <input required type="password" class="form-control" id="modal__reg-input--password" name="modal__reg-input--password" maxlength="8"></input>
+                            <div class="reg-input--pass"></div>                        
+                            <label for="modal__reg-input--firstname">Pr&eacute;nom</label>
+                            <input required type="text" class="form-control" id="modal__reg-input--firstname" name="modal__reg-input--firstname" maxlength="16"></input>
+                            <label for="modal__reg-input--lastname">Nom</label>
+                            <input required type="text" class="form-control" id="modal__reg-input--lastname" name="modal__reg-input--lastname" maxlength="16"></input>
+                            <label for="modal__reg-input--email">Email</label>
+                            <input required type="text" class="form-control" id="modal__reg-input--email" name="modal__reg-input--email" maxlength="20"></input>
+                            <label for="modal__reg-input--age">Age</label>
+                            <input required type="text" class="form-control" id="modal__reg-input--age" name="modal__reg-input--age" maxlength="3"></input>
+                            <label for="modal__reg-input--country">Pays</label>
+                            <input required type="text" class="form-control" id="modal__reg-input--country" name="modal__reg-input--country" maxlength="20"></input>
+                            <label for="modal__reg-input--state">Province</label>
+                            <input required type="text" class="form-control" id="modal__reg-input--state" name="modal__reg-input--state" maxlength="20"></input>
+                            <label for="modal__reg-input--city">Ville</label>
+                            <input required type="text" class="form-control" id="modal__reg-input--city" name="modal__reg-input--city" maxlength="20"></input>
+                            <label for="modal__reg-input--postal-code">Code postal</label>
+                            <input required type="text" class="form-control" id="modal__reg-input--postal-code" name="modal__reg-input--postal-code" maxlength="7"></input>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                    <!-- Submits the registration form when the button is enabled. Disabled until input is valid. -->
+                    <button form="modal__registration-form" id="modal__registration-form--connect" type="submit" class="btn btn-primary">Devenir Membre</button>
+                </div>
+                </div>
+            </div>
+        </div>

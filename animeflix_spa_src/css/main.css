@@ -1,0 +1,25 @@
+@import "generic/generic.css";
+@import "components/anime-card.css";
+@import "components/card__small--put-cart.css";
+@import "components/card__cart-bt__container.css";
+@import "components/content--admin.css";
+@import "components/form--admin-register-new.css";
+@import "components/form--admin-delete.css";
+@import "components/adminlist-grid-container--header.css";
+@import "components/cart-grid-container--header.css";
+@import "components/form--admin-register-new-bt.css";
+@import "components/form--admin-modify.css";
+@import "components/bt-empty-cart.css";
+@import "components/displayBill.css";
+
+.content-container, .card-columns {
+    width: 75%;
+}
+
+#msg {
+    color: red;
+}
+
+#navbarDropdownMenuLink{
+    color: white;
+}

@@ -1,0 +1,22 @@
+.adminlist-grid-container--header {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 1px 1px;
+    background-color:#007BFF;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.adminlist-grid-container--content {
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+    color: white;
+}
+
+.adminlist-grid-container--content img {
+    width: 40px;
+    height: 40px;
+}

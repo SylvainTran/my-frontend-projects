@@ -1,0 +1,31 @@
+        <!-- Modal for login -->
+        <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Connexion</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="modal__login-form" name="modal__login-form" action="assets/server/login.php" method="POST" onSubmit="validateRegistration();">
+                        <div class="form-group">
+                            <label for="modal__login-input--username">Identifiant</label>
+                            <input required type="text" class="form-control" id="modal__login-input--username" name="modal__login-input--username" maxlength="16"></input>
+                            <div class="login-input--username"></div>                        
+                            <br><br>
+                            <label for="modal__login-input--password">Mot de passe</label>
+                            <input required type="password" class="form-control" id="modal__login-input--password" name="modal__login-input--password" maxlength="8"></input>
+                            <div class="login-input--pass"></div>                        
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                    <!-- Submits the registration form when the button is enabled. Disabled until input is valid. -->
+                    <button form="modal__login-form" id="modal__login-form--connect" type="submit" class="btn btn-primary">Se Connecter</button>
+                </div>
+                </div>
+            </div>
+        </div>

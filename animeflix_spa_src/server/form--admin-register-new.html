@@ -1,0 +1,72 @@
+<br>
+<form id="form--create-new-product" enctype="multipart/form-data" onsubmit="validateAdminOps();">
+    <div id="form--admin-register-new">
+        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Title</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="admin__modify-product--title" name="admin__modify-product--title">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Author</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="admin__modify-product--author" name="admin__modify-product--author">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Description</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="admin__modify-product--desc" name="admin__modify-product--desc">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Price ($CAD)</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="admin__modify-product--price" name="admin__modify-product--price">
+            </div>
+        </div>
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-2 pt-0">Category</legend>
+                <div class="col-sm-10">
+                    <select class="custom-select" id="admin__modify-product--category" name="admin__modify-product--category">
+                        <option selected>Choose the category</option>
+                        <option value="1">Shonen</option>
+                        <option value="2">Shojo</option>
+                        <option value="3">Other</option>
+                    </select>
+                </div>
+            </div>
+        </fieldset>
+        <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Release Date</label>
+            <div class="col-sm-10">
+                <input type="date" class="form-control" id="admin__modify-product--releaseDate" name="admin__modify-product--releaseDate">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Duration (min.)</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="admin__modify-product--duration" name="admin__modify-product--duration">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Cover</label>
+            <div class="col-sm-10">
+                <input type="file" id="admin__modify-product--cover" name="admin__modify-product--cover"><br>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Youtube Preview Url (Seul les Youtube embed sont accept&eacute;s dans cette version ci...pour la stabilit&eacute;.)</label>
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Example Format: https://www.youtube.com/embed/QowAazTXDYw</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="admin__modify-product--previewUrl" name="admin__modify-product--previewUrl"><br>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-10">
+                <input type="button" class="btn btn-primary admin-modify-bt" value="Submit" onClick="requests('create')"></input>
+            </div>
+        </div>
+    </div>
+</form>

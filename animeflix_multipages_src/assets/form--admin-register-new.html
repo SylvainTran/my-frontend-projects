@@ -1,0 +1,65 @@
+<div id="form--admin-register-new">
+    <form id="content--admin__register" enctype="multipart/form-data" action="product-register.php"
+        method="POST" onSubmit="return validateProduct();">
+        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Title</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="admin__register-product--title">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Author</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="admin__register-product--author">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Description</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="admin__register-product--desc">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Price</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="admin__register-product--price">
+            </div>
+        </div>
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-2 pt-0">Category</legend>
+                <div class="col-sm-10">
+                    <select class="custom-select" name="admin__register-product--category">
+                        <option selected>Choose the category</option>
+                        <option value="1">Shonen</option>
+                        <option value="2">Shojo</option>
+                        <option value="3">Other</option>
+                    </select>
+                </div>
+            </div>
+        </fieldset>
+        <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Release Date</label>
+            <div class="col-sm-10">
+                <input type="date" class="form-control" name="admin__register-product--releasedate">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Duration</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="admin__register-product--duration">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Cover</label>
+            <div class="col-sm-10">
+                <input type="file" id="admin__register-product--cover" name="admin__register-product--cover"><br>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-10">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>

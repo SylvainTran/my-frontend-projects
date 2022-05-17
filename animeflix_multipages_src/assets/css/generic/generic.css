@@ -1,0 +1,32 @@
+/**
+    Auteur: Sylvain Tran
+    But du programme: Generic
+    Date: 30-05-2020
+*/
+body {
+    font-family: 'Questrial', sans-serif;
+}
+
+h1 {
+    color: blue;
+    text-align: center;
+}
+
+h2 {
+    color: red;
+    text-align: center;
+}
+
+h3 {
+    color: blue;
+    text-align: center;
+    font-style: italic;
+}
+
+hr {
+    width: 50%;
+}
+
+.hr--full-width {
+    width: 100%;
+}

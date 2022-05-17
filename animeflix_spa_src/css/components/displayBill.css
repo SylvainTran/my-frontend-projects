@@ -1,0 +1,9 @@
+#displayBill > p {
+    font-weight: bold;
+    display: inline;
+}
+#displayBill {   
+    margin-left: 80%;
+    margin-right: 15px;
+    text-align: center;
+}

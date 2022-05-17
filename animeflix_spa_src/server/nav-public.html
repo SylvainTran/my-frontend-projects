@@ -1,0 +1,39 @@
+        <!-- Navbar content -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="index.php">Anime Cookie</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                    <!-- All movies -->
+                        <a class="nav-link" href="index.php" tabindex="-1">Tous les anim&eacute;s</a>
+                    </li>
+                    <li>
+                    <!-- Add movies -->
+                        <a class="nav-link" onClick="toggleAddFilmForm(true)" href="#">Ajouter</a>
+                    </li>
+                    <!-- Show by Categories -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Cat&eacute;gories
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <form id="dropdown-menu--category-form">
+                                <select name="dropdown-menu--category-form__select">
+                                    <option class="dropdown-item" name="category" value="Shonen">Shonen</input>
+                                    <option class="dropdown-item" name="category" value="Shojo">Shojo</input>
+                                    <option class="dropdown-item" name="category" value="Other">Other</input>
+                                    <input type="hidden" name="action" value="list-by-cat"></input>
+                                    <input type="button" name="action" value="Search" onClick="requests('list-by-cat');"></input>
+                                </select>
+                            </form>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>

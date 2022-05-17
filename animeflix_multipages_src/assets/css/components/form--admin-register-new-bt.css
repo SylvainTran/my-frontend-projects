@@ -1,0 +1,8 @@
+#form--admin-register-new-bt, #form--admin-delete-bt {
+    margin-left: 50px;
+    margin-bottom: 50px;
+    background-color: greenyellow;
+    color: black;
+    border: 1px solid white;
+    border-radius: 5px;
+}

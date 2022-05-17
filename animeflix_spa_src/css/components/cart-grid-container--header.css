@@ -1,0 +1,27 @@
+.cart-grid-container--header {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1px 1px;
+    background-color:#007BFF;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.cart-grid-container--content {
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+    color: white;
+}
+
+.cart-grid-container--content img {
+    width: 40px;
+    height: 40px;
+}
+
+.cart-qt {
+    width: 50px;
+    text-align: center;
+}
