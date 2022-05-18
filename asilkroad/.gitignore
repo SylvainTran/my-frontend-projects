@@ -1,0 +1,8 @@
+/node_modules
+/test
+npm-debug.log
+.DS_Store
+/*.env
+*.ref
+*.blend
+*.blend1

@@ -1,0 +1,441 @@
+@import "animations.css";
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Trirong', serif;
+    background-color: rgb(1, 7, 42);
+    color: white;
+    /* scrollbar-color: black;
+    scrollbar-track-color: black;
+    scrollbar-3dlight-color: black;
+    scrollbar-highlight-color: black; */
+}
+
+#cart_logo {
+    width: 128px;
+    height: 128px;
+}
+
+.public-intro {
+    text-align: center;
+    margin-top: 20%;
+    margin-bottom: 20%;
+    font-size: 3em;
+}
+
+.public-intro>p {
+    font-size: 0.8em;
+}
+
+.top-nav,
+.bottom-nav {
+    text-align: center;
+}
+
+.bottom-nav {
+    font-size: 1.5em;
+}
+
+.public-explorable-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-area: 1/1/2/3;
+}
+
+.ui-dialog-titlebar{
+    font-family: 'Trirong', serif;
+    background-color: #15284d;
+    color: white;
+    text-align: center;
+}
+
+.ui-dialog, #tutorial--container {
+    font-family: 'Trirong', serif;
+    background-color: #15284d;
+    border: none;
+    border-radius: 3%;
+    opacity: 1;
+    color: white;
+    width: auto;
+}
+
+.ui-widget.ui-widget-content, .ui-widget-header, .ui-widget-content {
+    border: none;
+    color: white;
+}
+
+.explorable-text-view--update {
+    text-align: center;
+}
+
+.inventory-view-container {
+    background-color: black;
+    color: white;
+    overflow: auto;
+    display: grid;
+    width: 500px;
+    height: 700px;
+    position: fixed;
+    top: 0;
+    right: 300px;
+    border-radius: 2%;
+    opacity: 0.3;  
+}
+
+.brokerage-view-container {
+    background-color: black;
+    color: white;
+    overflow: auto;
+    display: none;
+    width: 500px;
+    height: 700px;
+    position: fixed;
+    top: 300px;
+    right: 950px;
+    border-radius: 2%;
+    opacity: 0.3;
+}
+
+#brokerage-view__content {
+    margin: 1.5em 0 1.5em 1.5em;
+    display: grid;
+    grid-row: 1;
+    grid-column: 2;
+    /* border: 1px solid silver; */
+}
+
+#warning--container {
+    z-index: 50;
+}
+
+.company-rooster-view-container, #inventory-contextMenu--manufacture-container, .flareflag-view-container {
+    display: none;
+    background-color: black;
+    color: white;
+    overflow: auto;
+    display: none;
+    width: 500px;
+    height: 700px;
+    position: fixed;
+    top: 300px;
+    left: 700px;
+    border-radius: 2%;
+    opacity: 1;
+    z-index: 3;
+}
+
+#inventory-contextMenu--buy-container {
+    height: auto;
+    width: auto;
+}
+
+.inventory-view-container:hover {
+    opacity: 1;
+}
+
+.brokerage-view-container:hover {
+    /* border: 1px solid silver; */
+    opacity: 1;
+    /* background-color: #11357e; */
+}
+
+hr.thick {
+    border-top: 3px solid black;
+}
+
+#brokerage-view__inventory {
+    margin: 1.5em;
+    display: grid;
+    grid-row: 1;
+    grid-column: 1;
+    width: 150px;
+    /* border: 1px solid white; */
+}
+
+#brokerage-view__inventory:hover {
+    background-color: hsla(45%, 25%, 35%, 0.5);
+}
+
+.ui--lantern-light-level {
+    font-size: 1.5em;
+    padding: 2em;
+    display: inline-block;
+    z-index: 2;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+.ui--territory-resource-balance-level {
+    font-size: 1.5em;
+    padding: 2em;
+    display: inline-block;
+    z-index: 2;
+    position: fixed;
+    bottom: 100px;
+    right: 0;
+}
+
+.ui--gold-balance {
+    font-size: 1.5em;
+    padding: 2em;
+    display: inline-block;
+    z-index: 2;
+    position: fixed;
+    bottom: 200px;
+    right: 0;
+}
+
+#graphics-view--canvas {
+    z-index: 0;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+}
+
+#contextMenu--select-container {
+    display: none;
+    position: fixed;
+    padding: 0;
+    margin: 0;
+    background-color: #15284d;
+    font-family: 'Trirong', serif;
+    text-align: center;
+}
+
+#contextMenu--select-container>div {
+    color: white;
+    padding: 0;
+    margin: 0;
+    font-family: 'Trirong', serif;
+}
+
+#contextMenu--select-recruit {
+    display: none;    
+}
+
+#inventory-contextMenu--select-container,
+.ui-dialog-buttonpane {
+    background-color: #15284d;
+    color: white;
+    font-family: 'Trirong', serif;
+}
+
+#inventory-contextMenu--select-container li {
+    background-color: #15284d;
+    color: white;
+    cursor: pointer;
+    font-family: 'Trirong', serif;
+}
+
+#inventory-contextMenu--select-container li:hover {
+    background-color: indianred;
+}
+
+.contextMenu--select-actions>div {
+    padding: 3px;
+    cursor: pointer;
+    font-family: 'Trirong', serif;
+}
+
+.contextMenu--select-actions>div:hover,
+#brokerage-list li:hover,
+#inventory li:hover, #inventory-contextMenu--manufacture-container li:hover, #ops--recruitment-menu-container li:hover {
+    background-color: indianred;
+    color: white;
+    cursor: pointer;
+}
+
+.brokerage--empty-listing {
+    color: #201c3d;
+    cursor: default;
+}
+
+.brokerage--with-listing {
+    background-color: #11357e;
+    color: yellow;
+    cursor: pointer;
+}
+
+.explorable-text-view {
+    height: 600px;
+    width: 377px;
+    background-color: #15284d;
+    color: rgb(255, 255, 255);
+    overflow: auto;
+    z-index: 2;
+    position: fixed;
+    top: 10vh;
+    left: 0;
+}
+
+.explorable-text-view>h4 {
+    color: greenyellow;
+}
+
+.explorable-text-view>p,
+.explorable-text-view>h1 {
+    margin: 0;
+    padding: 1em;
+    text-align: center;
+}
+
+.chat-view-container {
+    background-color: black;
+    height: 200px;
+    grid-area: 2/1/2/2;
+    overflow: auto;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.chat-view-container li {
+    color: white;
+    font-size: 1.5em;
+    font-weight: bolder;
+    width: 894px;
+}
+
+.chat-view-header {
+    font-family: 'Trirong', serif;
+    opacity: 1;
+    margin: 0;
+    padding: 1em;
+    color: white;
+    background-color: black;
+}
+
+#chat-view-inputfield {
+    position: relative;
+    height: 50px;
+    bottom: 0; 
+    width: 800px;
+}
+
+.public-global-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 5%;
+}
+
+.narrative-container {
+    text-align: center;
+    font-size: 1.5em;
+    margin: 10%;
+}
+
+.narrative,
+.narrative-interactive {
+    text-align: left;
+    padding: 50px;
+}
+
+.narrative>h1 {
+    background-color: pink;
+}
+
+.gather-button,
+.hunt-button {
+    margin: 10px;
+    background-color: green;
+    color: white;
+}
+
+form > input {
+    padding-left: 0.5%;
+    padding-right: 0.5%;
+    background-color: black;
+    color: white;
+    font-size: 1.4em;
+}
+
+form button {
+    width: 54px;
+    height: 46px;
+    padding-top: 5px;
+    background: hsla(15%, 25%, 35%, 0.1);
+    font-weight: bold;
+}
+
+.ui-buttons {
+    position: relative;
+    z-index: 1;
+    left: 200px;
+    width: 500px;
+    display: inline-block;
+    background-color: black;
+}
+
+.ui-button {
+    display: inline-block;
+    font-family: 'Trirong', serif;
+    border: none;
+    background-color: #15284d;
+    position: relative;
+    z-index: 1;
+    color: white;
+}
+
+.ui-manufacture-panel {
+    display: none;
+    border: none;
+    color: white;
+    height: 500px;
+    width: 500px;
+    overflow: auto;
+}
+
+#messages {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#messages li {
+    padding: 5px 10px;
+}
+
+.footer {
+    text-align: center;
+    font-size: 2em;
+    padding: 100px;
+    background-color: gray;
+    color: white;
+}
+
+::-webkit-scrollbar {
+    background-color: black;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 15px;
+    background-color: #004075;
+    outline: 2px solid black;
+    opacity: 0.3;
+}
+
+::-webkit-scrollbar:horizontal {
+    display: none;
+}
+
+::-webkit-scrollbar:vertical {
+
+}
+
+.ui-dialog-buttonset {
+    text-align: center;
+    display: flex;
+}
