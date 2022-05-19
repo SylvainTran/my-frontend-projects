@@ -1,0 +1,33 @@
+.carousel {
+    height: 100vh;
+    z-index: 3;
+}
+
+.carousel-cell {
+    margin-right: 20px;
+    overflow: hidden;
+    height: 100%;
+    width: 66vw;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.main-carousel {
+    height: 100vh;
+}
+
+.carousel-cell-info {
+    position: absolute;
+    bottom: 20vh;
+    left: 45vw;
+}
+
+.carousel-cell img {
+    display: block;
+    height: 100vh;
+    z-index: 3;
+}
+
+.flickity-viewport {
+    z-index: 2;
+}
