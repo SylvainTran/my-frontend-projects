@@ -4,6 +4,7 @@
 @import "menu-viz-ui.css";
 @import "shapes.css";
 @import "colors.css";
+@import "menu-vertical-ui.css";
 
 /* HTML elements */
 
@@ -19,6 +20,10 @@ body {
 .hidden-at-bottom {
   position: fixed;
   bottom: -100vh;
+}
+
+.zero-height {
+  height: 0;
 }
 
 /* Flex settings */
@@ -79,6 +84,36 @@ body {
 .is-rotated-and-translated-y {
   transform: rotate(35deg) translateY(-768px);
   transform-origin: center;
+}
+
+@keyframes translateYUp {
+  0% {
+    transform: translateY(0%);
+  }
+
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes translateYDown {
+  0% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+.is-translatingY-up {
+  animation: translateYUp 3s forwards;
+  animation-direction: normal;
+}
+
+.is-translatingY-down {
+  animation: translateYDown 3s forwards;
+  animation-direction: normal;
 }
 
 /* Generic misc */
