@@ -28,9 +28,12 @@
 
 .carousel-cell img {
     display: block;
-    height: 100vh;
-    width: 100vw;    
+    height: 100%;
     z-index: 3;
+}
+
+.carousel video {
+    z-index: 10;
 }
 
 .flickity-viewport {
@@ -42,4 +45,5 @@
     left: 10vw;
     top: 20vh;
     color: red;
+    z-index: 4;
 }

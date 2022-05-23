@@ -5,6 +5,7 @@
 @import "shapes.css";
 @import "colors.css";
 @import "menu-vertical-ui.css";
+@import "identity-section.css";
 
 /* HTML elements */
 
@@ -30,10 +31,20 @@ body {
 
 .my-is-flex {
   display: flex;
+  align-items: center;
+}
+
+.has-flex-gap {
+  gap: 5rem;
 }
 
 .is-vertical {
   flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
 }
 
 .is-centered {
@@ -47,6 +58,10 @@ body {
 }
 
 /* Positioning */
+
+.is-absolute {
+  position: absolute;
+}
 
 .is-bottom-center-fixed {
   position: fixed;
@@ -67,6 +82,26 @@ body {
 .has-horizontal-margins {
   margin-left: 50px;
   margin-right: 50px;
+}
+
+.has-bottom-margin {
+  margin-bottom: 5rem;
+}
+
+.first-margin {
+  margin-top: -40vh;
+}
+
+.second-margin {
+  margin-top: -20vh;
+}
+
+.third-margin {
+  margin-top: 0vh;
+}
+
+.has-medium-width {
+  width: 50%;
 }
 
 /* Transformations */
@@ -124,9 +159,29 @@ body {
 
 /* Size settings */
 
+.is-block {
+  display: block;
+}
+
+.is-inline-block {
+  display: inline-block;
+}
+
 .is-full-cell {
   width: 100%;
   height: 100%;
+}
+
+.is-full-width {
+  width: 100vw;
+}
+
+.is-half-width {
+  width: 49.83vw;
+}
+
+.is-half-height {
+  height: 50vh;
 }
 
 #video {
@@ -141,4 +196,16 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+/* font sizes */
+
+.has-very-large-font {
+  font-size: 10vw;
+}
+
+.lobster-bg {
+  background-image: url("../assets/lobster1.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
 }
