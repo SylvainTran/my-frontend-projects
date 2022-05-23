@@ -16,3 +16,4 @@
 .prettierignore
 
 */node_modules/
+/impressive-replica-project/assets/*.mp4
