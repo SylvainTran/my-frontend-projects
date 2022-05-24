@@ -16,12 +16,17 @@
   --main-color: black;
   --nav-color: white;
   --nav-font-size: 2rem;
+  --branding-font-size: 2rem;
+  --branding-color: cyan;
   --main-font: 'Heebo', sans-serif;
+  --font-light: 100;
+  --font-bold: 400;
 }
 
 body {
   font-family: var(--main-font);
-  background-color: var(--main-bg-color);  
+  font-weight: var(--font-light);
+  background-color: var(--main-bg-color);      
 }
 
 /* Display Utilities  */
@@ -162,7 +167,8 @@ body {
 /* Generic misc */
 .branding-text {
   margin-right: 3em;
-  color: pink;
+  font-size: var(--branding-font-size);
+  color: var(--branding-color);
 }  
 
 /* Size settings */
