@@ -1,0 +1,127 @@
+html, body {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: system-ui;
+    background: #1A1B1F;
+    color: white;
+    text-align: center;
+  }
+  
+  .grid-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+    grid-template-rows: 1fr;
+    grid-gap: 15px;
+    width: 200px;
+  }
+  
+  #navbar{
+    grid-area: 1/1/1/1;
+    height: 100%;
+    width: 200px;
+    background-color: #474b5b;
+  }
+  
+  #flex-navbar{
+    display: flex;
+    flex-direction: column;    
+    position: fixed;
+    margin: 10px;
+  }
+  
+  a {
+    text-decoration: none;
+    padding-bottom: 5px;
+  }
+  a::after {
+    content: "→";
+  }
+  a:link, a:visited, a:hover, a:active {
+    color: powderblue;
+    text-decoration: none;
+  }
+  #main-doc{
+    grid-area: 1/2/1/2;
+    text-align: center;
+    width: 75vw;
+  } 
+  
+  header{
+    font-size: 25px;
+    padding-bottom: 25px;
+  }
+  
+  #nav-title{
+    color: salmon;
+  }
+  
+  .main-section > ul > li {
+    list-style-type: none;
+  }
+  
+  /** Small devices (landscape phones, 576px and up) **/
+  @media (max-width: 576px) { 
+    .grid-container{
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 2fr;
+      grid-gap: 15px;
+      width: auto;
+    }
+    #navbar{
+      grid-area: 1/1/1/1;
+      width: auto;
+    }
+    #flex-navbar{
+      display: flex;
+      flex-direction: column;
+      width: auto;
+      height: auto;
+      position: relative;
+    }
+    #main-doc{
+      grid-area: 1/2/1/2;
+      text-align: center;
+      width: auto; /** TODO: Check values for     this --responsive **/
+    }
+  }
+  
+  /** Medium devices (tablets, 768px and up) **/
+  @media (max-width: 768px) { 
+    .grid-container{
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 2fr;
+      grid-gap: 15px;
+      width: auto;
+    }
+    #navbar{
+      grid-area: 1/1/1/1;
+      width: auto;
+    }
+    #flex-navbar{
+      display: flex;
+      flex-direction: column;
+      width: auto;
+      height: auto;
+      position: relative;
+    }  
+    #main-doc{
+      grid-area: 2/1/2/1;
+      text-align: center;
+      width: auto; /** TODO: Check values for     this --responsive **/
+    }
+  }
+  
+  /** Large devices (desktops, 992px and up) **/
+  @media (min-width: 992px) { 
+    .grid-container{
+      display: grid;
+      grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+      grid-template-rows: 1fr;
+      grid-gap: 15px;
+      width: 200px;
+    }
+  }
