@@ -6,13 +6,21 @@
 @import "colors.css";
 @import "menu-vertical-ui.css";
 @import "identity-section.css";
+@import "fourbyfourgrid.css";
 
 /* HTML elements */
 
 * { box-sizing: border-box; }
 
+:root {
+  --main-color: black;
+  --nav-color: white;
+  --nav-font-size: 2rem;
+  --main-font: 'Heebo', sans-serif;
+}
+
 body {
-  font-family: sans-serif;
+  font-family: var(--main-font);
   background-color: var(--main-bg-color);  
 }
 
@@ -208,4 +216,19 @@ body {
   background-image: url("../assets/lobster1.jpg");
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+
+/* Buttons */
+
+.round-button {
+  border: 0px;
+  border-radius: 100%;
+  width: 5rem;
+  height: 5rem;
+  color: black;
+}
+
+.round-button:hover {
+  color: blue;
 }

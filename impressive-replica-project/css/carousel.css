@@ -4,7 +4,7 @@
 }
 
 .carousel-cell {
-    margin-right: 20px;
+    /* margin-right: 20px; */
     overflow: hidden;
     height: 100%;
     width: 100%;
@@ -47,4 +47,9 @@
     top: 20vh;
     color: red;
     z-index: 4;
+}
+
+.flickity-page-dots {
+    height: 0 important!;
+    opacity: 0 important!;
 }

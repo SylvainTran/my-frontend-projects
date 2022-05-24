@@ -4,15 +4,16 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Black Material</title>
+    <title>Adventure Agency</title>
 
     <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
     <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/style.css">
@@ -31,10 +32,10 @@
           <div><h1>A</h1></div>
         </div>  
         <section class="main-unit identity-section my-is-flex is-centered">
-          <div class="has-medium-width">
-            <div id="identity-section-el-1" class="anim-margin-el has-very-large-font first-margin is-absolute my-is-flex is-centered is-full-width">EXPLORERS</div>
-            <div id="identity-section-el-2" class="anim-margin-el has-very-large-font second-margin is-absolute my-is-flex is-centered is-full-width">LEADERS</div>
-            <div id="identity-section-el-3" class="anim-margin-el has-very-large-font third-margin is-absolute my-is-flex is-centered is-full-width">STORYTELLERS</div>            
+          <div class="text-middle-container is-absolute">
+            <div id="identity-section-el-1" class="identity-el">EXPLORERS</div>
+            <div id="identity-section-el-2" class="identity-el">LEADERS</div>
+            <div id="identity-section-el-3" class="identity-el">STORYTELLERS</div>            
           </div>       
           <video autoplay loop="true" src="assets/astronaut.mp4">  
         </section> 
@@ -45,25 +46,19 @@
         <div class="vertical-slide-target">
           <video autoplay loop="true" src="assets/moonsurf.mp4">  
         </div>  
-        <div class="">
-          <button class="vertical-slide-trigger">Grab the sky</button>   
-          <div class="main-unit">
-            <div class="flex-row">
-              <div class="is-half-width is-half-height">   
-                <video autoplay loop="true" src="assets/ruins.mp4">           
-              </div>
-              <div class="is-half-width is-half-height">
-
-              </div>     
-            </div>
-            <div class="flex-row">
-              <div class="is-half-width is-half-height">           
-                <video autoplay loop="true" src="assets/satellite.mp4">   
-              </div>
-              <div class="is-half-width is-half-height">
-                <video autoplay loop="true" src="assets/ukraine.mp4">  
-              </div>                      
-            </div>
+        <div class="grid-container main-unit">
+          <button class="vertical-slide-trigger round-button">Slide up</button>   
+          <div class="grid-item">   
+            <video autoplay loop="true" src="assets/ruins.mp4">           
+          </div>
+          <div class="grid-item">
+            <video autoplay loop="true" src="assets/camping.mp4">           
+          </div>     
+          <div class="grid-item">           
+            <video autoplay loop="true" src="assets/satellite.mp4">   
+          </div>
+          <div class="grid-item">
+            <video autoplay loop="true" src="assets/ukraine.mp4">  
           </div>  
         </div>   
       </div>
@@ -71,11 +66,13 @@
       <div id="a3-1" class="carousel-cell">       
         <!-- Vertical slide target -->    
         <div class="vertical-slide-target">
-          <video autoplay loop="true" src="assets/watercave.mp4">  
+          <video autoplay loop="true" src="assets/moonsurf.mp4">  
         </div>  
         <div class="">
-          <button class="vertical-slide-trigger">Grab the sky</button>   
-          <div class="main-unit">Make the web a better place</div>
+          <button class="vertical-slide-trigger round-button">Slide up</button>   
+        </div>
+        <div class="main-unit">
+
         </div>
       </div>
     </div>
@@ -85,9 +82,8 @@
     </div>
 
     <!-- Nav menu -->
-    <div id="navbar-mask-toggle" class="navbar-mask">
-      <nav class="navbar"></nav>
-    </div>
+    <nav class="navbar my-is-flex is-centered"><h1 class="">Menu</h1></nav>
+    <div class="navbar-mask"></div>
 
     <!-- Menu Visualization Interface -->
     <div id="menu-viz" class="menu-visualization-interface-bg">
@@ -181,7 +177,7 @@
       <!-- Keyboard Nav menu -->      
       <div id="navbar-keyboard-container">
         <nav class="navbar-keyboard-flex is-bottom-center-fixed">
-          <h1 class="branding-text">Material Love</h1>
+          <h1 class="branding-text">Adventure Agency</h1>
           <div id="keyboard-rect-0" class="rectangle keyboard-rectangle"></div>                    
           <div id="keyboard-rect-1" class="rectangle keyboard-rectangle"></div>
           <div id="keyboard-rect-2" class="rectangle keyboard-rectangle"></div>
@@ -222,19 +218,6 @@
         carouselCells[i].addEventListener("mouseenter", handleEventListeners);
       } 
 
-      // Navbar menu animation
-      const navbar = document.querySelector(".navbar-mask");
-      $( ".navbar-mask" ).hover(function() {
-        $( ".navbar" ).animate({
-            opacity: 1,
-            bottom: "-10",
-            height: "3em"
-          }, 200, function() {
-            // Animation complete.
-          });
-        }
-      );
-
       // We want to pop-up a full screen thing with a totally different interface and menu at the bottom
       // Menu viz interface UI
       const $menuVizInterfaceUI = $("#menu-viz");
@@ -247,18 +230,22 @@
       console.log("Item width with width(): " + horizontalMenuItemWidth);
       // console.log("horizontal menu item max width: " + horizontalMenuItemMaxWidth);
 
-      $( ".navbar-mask" ).click(function(event) {
+      $( ".navbar" ).click(function(event) {
           // Position the horizontal menu's first element at the center of the screen
           $("#menu-viz-horizontal-labels-container").css('transform', 'translateX(' + window.innerWidth/2 - horizontalMenuItemWidth/2 + 'px)');
 
           $menuVizInterfaceUI.toggleClass( "menu-visualization-interface-bg-show", true );
 
-          ++count;          
+          ++count; 
+          
+          $(".navbar").css("bottom", "-100px");
         }
       );
 
       $menuVizInterfaceUI.click(function(event) {
-        $menuVizInterfaceUI.removeClass( "menu-visualization-interface-bg-show" );        
+        $menuVizInterfaceUI.removeClass( "menu-visualization-interface-bg-show" );   
+
+        $(".navbar").css("bottom", "0px");     
       });
 
       // We want to attach onhover events on the keyboard nav menu at the bottom center to displace the indicator
@@ -349,6 +336,14 @@
         });
 
       });
+      
+      $('.identity-el').hover(function(evt) {
+        $( this ).addClass('identity-el-animate');
+      });
+
+      $('.identity-el').mouseout(function(evt) {
+        $( this ).removeClass('identity-el-animate');
+      })
       
     </script>
   </body>

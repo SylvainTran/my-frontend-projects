@@ -22,3 +22,10 @@ Using flexbox like that, elements will have a slight gap if the child image for 
 If put a global container, then all children will be stacked horizontally or vertically.
 Can issue a different custom container that is not flex, and children with flex containers that can be fitted in a grid.
 
+# Grid-css
+
+Use this to make grids over flexbox for ease.
+
+## object-fit
+
+A CSS property which allows video or img media to be resized in their container. "cover" will maintain aspect-ratio while filling the container completely, while contain ensures that the media will fit in but not necessarily fill the container (this is the default?).
