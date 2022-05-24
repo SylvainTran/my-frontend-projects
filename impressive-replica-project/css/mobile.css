@@ -6,7 +6,19 @@
         grid-column-end: 1;
 
         grid-row-start: 1;
-        grid-row-end: 4;
+        height: 100vh;
+        overflow: scroll;
+    }
+
+    .is-bottom-center-fixed {
+        left: 0vw !important;        
+    }
+
+    #close-menu-bt {
+        display: inline;
+        position: absolute;
+        top: 0;
+        right: 0;
     }
 
 }

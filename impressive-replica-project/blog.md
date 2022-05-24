@@ -29,3 +29,7 @@ Use this to make grids over flexbox for ease.
 ## object-fit
 
 A CSS property which allows video or img media to be resized in their container. "cover" will maintain aspect-ratio while filling the container completely, while contain ensures that the media will fit in but not necessarily fill the container (this is the default?).
+
+## Event handling scope
+
+When events are called, things will use the global scope variables if they are declared there. Should use variables in local scope to avoid this from happening.

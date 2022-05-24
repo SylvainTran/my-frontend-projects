@@ -28,16 +28,14 @@
 
 /* Keyboard Navbar in the menu viz */
 
-.navbar-keyboard-container {
-    position: fixed;
-    bottom: 0;
-    z-index: 2;
+#navbar-keyboard-container {
+
 }
 
 .navbar-keyboard-flex {
     display: flex;
     flex-direction: row;
-    gap: 0;
+    gap: 0;    
     width: 100%;
     z-index: 4;
 }
@@ -45,5 +43,4 @@
 .navbar-keyboard {
     display: flex;
     flex-direction: row;
-    z-index: 4;
 }

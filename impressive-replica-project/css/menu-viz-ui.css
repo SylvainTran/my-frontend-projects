@@ -176,3 +176,8 @@
     95%  {width: 5%; opacity: 5;}
     100% {width: 0%; opacity: 0;}
 }
+
+#close-menu-bt {
+    display: hidden;
+    z-index: 10;
+}
