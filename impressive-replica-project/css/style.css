@@ -7,6 +7,7 @@
 @import "menu-vertical-ui.css";
 @import "identity-section.css";
 @import "fourbyfourgrid.css";
+@import "mobile.css";
 
 /* HTML elements */
 
@@ -14,6 +15,7 @@
 
 :root {
   --main-color: black;
+  --main-bg-color: black;
   --nav-color: white;
   --nav-font-size: 2rem;
   --branding-font-size: 2rem;
@@ -27,6 +29,10 @@ body {
   font-family: var(--main-font);
   font-weight: var(--font-light);
   background-color: var(--main-bg-color);      
+}
+
+html {
+  background-color: var(--main-bg-color);
 }
 
 /* Display Utilities  */
@@ -119,19 +125,22 @@ body {
 
 /* Transformations */
 
-.rotated {
-  transform: rotate(35deg); /* Equal to rotateZ(45deg) */
-  /* transform-origin: 50% 100%; */
-  transform-origin: center;
-}
+@media only screen and (min-width: 769px) {
+  .rotated {
+    transform: rotate(35deg); /* Equal to rotateZ(45deg) */
+    /* transform-origin: 50% 100%; */
+    transform-origin: center;
+  }
 
-.scaled {
-  transform: scaleX(2);
-}
+  .scaled {
+    transform: scaleX(2);
+  }
 
-.is-rotated-and-translated-y {
-  transform: rotate(35deg) translateY(-768px);
-  transform-origin: center;
+  .is-rotated-and-translated-y {
+    transform: rotate(35deg) translateY(-768px);
+    transform-origin: center;
+  }
+
 }
 
 @keyframes translateYUp {

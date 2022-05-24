@@ -24,23 +24,31 @@
   </head>
   <body>
     
-    <!-- Main Carousel -->    
+    <!-- Main Carousel Start -->    
+
     <div class="main-carousel" data-flickity='{ "cellAlign": "left", "contain": true }'>
-      <div id="a1-1" class="carousel-cell">       
-        <!-- Vertical slide target -->    
-        <div class="vertical-slide-target">
-          <div><h1>A</h1></div>
-        </div>  
-        <section class="main-unit identity-section my-is-flex is-centered">
-          <div class="text-middle-container is-absolute">
-            <div id="identity-section-el-1" class="identity-el">ADVENTURERS</div>
-            <div id="identity-section-el-2" class="identity-el">HELPERS</div>
-            <div id="identity-section-el-3" class="identity-el">STORYTELLERS</div>            
-          </div>       
-          <video autoplay loop="true" src="./assets/astronaut.mp4">  
-        </section> 
+
+      <!-- Who we are -->    
+
+      <div class="">
+        <div id="a1-1" class="carousel-cell">       
+          <!-- Vertical slide target -->    
+          <div class="vertical-slide-target">
+            <div><h1>A</h1></div>
+          </div>  
+          <section class="main-unit identity-section my-is-flex is-centered">
+            <div class="text-middle-container is-absolute">
+              <div id="identity-section-el-1" class="identity-el">ADVENTURERS</div>
+              <div id="identity-section-el-2" class="identity-el">HELPERS</div>
+              <div id="identity-section-el-3" class="identity-el">STORYTELLERS</div>            
+            </div>       
+            <video autoplay loop="true" src="./assets/astronaut.mp4">  
+          </section> 
+        </div>
       </div>
       
+      <!-- Portfolio Grid -->    
+
       <div id="a2-1" class="carousel-cell">       
         <!-- Vertical slide target -->    
         <div class="vertical-slide-target">
@@ -63,6 +71,8 @@
         </div>   
       </div>
       
+      <!-- Something -->    
+
       <div id="a3-1" class="carousel-cell">       
         <!-- Vertical slide target -->    
         <div class="vertical-slide-target">
@@ -73,7 +83,10 @@
         </div>
         <div class="main-unit"></div>
       </div>
-      <div id="a3-1" class="carousel-cell">       
+
+      <!-- Business Contact -->    
+
+      <div id="a4-1" class="carousel-cell">       
         <!-- Vertical slide target -->    
         <div class="vertical-slide-target">
           <video autoplay loop="true" src="./assets/moonsurf.mp4">  
@@ -87,15 +100,19 @@
       </div>      
     </div>
 
+    <!-- Selection info utils --> 
+
     <div class="carousel-cell-info" style="font-size: 4em; color: white;">
       <h1 id="carousel-picker-logger"></h1>
     </div>
 
     <!-- Nav menu -->
+
     <nav class="navbar my-is-flex is-centered"><h1 class="">Menu</h1></nav>
     <div class="navbar-mask"></div>
 
     <!-- Menu Visualization Interface -->
+
     <div id="menu-viz" class="menu-visualization-interface-bg">
       <!-- Rotated boxes container -->
       <div id="menu-viz-rotated-boxes-container" class="my-is-flex is-vertical is-centered is-rotated-and-translated-y">
@@ -177,8 +194,8 @@
             <p>Camping by the sea with friends</p>
           </div>
         </div>        
-
       </div>
+
       <!-- Keyboard Nav menu -->      
       <div id="navbar-keyboard-container">
         <nav class="navbar-keyboard-flex is-bottom-center-fixed">
@@ -190,7 +207,8 @@
           <div id="keyboard-rect-4" class="rectangle keyboard-rectangle"></div>
           <div id="keyboard-rect-5" class="rectangle keyboard-rectangle"></div>
         </nav>
-      </div>     
+      </div>   
+
       <!-- Keyboard Selection Indicator -->
       <div class="rectangle selection-indicator is-bottom-center is-outside-viewport bg-is-white"></div>
     </div>

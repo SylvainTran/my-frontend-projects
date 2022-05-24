@@ -1,0 +1,33 @@
+@media only screen and (max-width: 768px) {
+
+    #a2-1 .grid-container {
+        grid-template-columns: auto;
+        grid-column-start: 1;
+        grid-column-end: 1;
+
+        grid-row-start: 1;
+        grid-row-end: 4;
+    }
+
+}
+
+@media only screen and (max-width: 10000px) {
+
+    #a1-1 video {
+        width: 100vw;
+        height: 100vh;    
+        object-fit: cover;    
+    }
+
+    #a4-1 img {
+        height: 100vh;
+        width: 100vw;
+        object-fit: cover;
+    }
+
+    .vertical-slide-target video {
+        height: 100%;
+        width: 100%;    
+        object-fit: cover;
+    }
+}
