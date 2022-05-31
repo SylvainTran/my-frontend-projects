@@ -21,10 +21,11 @@ class MainCarousel extends React.Component {
 
   render() {
     return (
-      <section className="main-carousel" data-flickity='{ "cellAlign": "left", "contain": true }'>
+      <div className="main-carousel" data-flickity='{ "cellAlign": "left", "contain": true }'>
         <IdentityCarouselCell id="a1-1"/>
-        <PortfolioGrid id="a1-2"/>
-      </section>);
+        <PortfolioGrid id="a2-1"/>
+        <CarouselCell id="a3-1"/>
+      </div>);
   }
 }
 
